@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="sw" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madrasatul Ibadu-rrahman | Kutoa Elimu ya Dini na Maadili Mema ya Kiislamu</title>
+    <meta name="description" content="Tovuti rasmi ya Madrasatul Ibadu-rrahman - Kutoa elimu ya Qur'an, Tajweed, Fiqh, na maadili mema ya Kiislamu kwa watoto na vijana.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#047857',
+                        accent: '#D97706',
+                        cream: '#FEF7ED',
+                        charcoal: '#1F2937',
+                        gold: '#F59E0B',
+                        lightGreen: '#10B981',
+                        darkGreen: '#065F46'
+                    },
+                    fontFamily: {
+                        'arabic': ['Amiri', 'serif'],
+                        'swahili': ['Poppins', 'Inter', 'system-ui', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'islamic-pattern': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23D97706\" fill-opacity=\"0.08\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        .uppercase-text { text-transform: uppercase; }
+
+        @keyframes applyGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.55), 0 8px 20px rgba(217, 119, 6, 0.35); }
+            50% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0), 0 8px 26px rgba(217, 119, 6, 0.55); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+            50% { transform: translateY(-10px) rotate(1.5deg); }
+        }
+        .float { animation: float 3s ease-in-out infinite; }
+        .apply-glow { animation: applyGlow 2s ease-in-out infinite, float 3s ease-in-out infinite; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .active-nav {
+            color: #F59E0B;
+            position: relative;
+        }
+        .active-nav::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #F59E0B;
+            border-radius: 2px;
+        }
+        [dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+        [dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+        [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+        [dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+        [dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
+        [dir="rtl"] .text-left { text-align: right; }
+        [dir="rtl"] .text-right { text-align: left; }
+        [dir="rtl"] body { font-family: 'Amiri', 'Noto Naskh Arabic', 'Poppins', system-ui, sans-serif; }
+        [dir="ltr"] body { font-family: 'Poppins', 'Inter', system-ui, sans-serif; }
+    </style>
+</head>
+
+<body class="font-swahili text-charcoal bg-white antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#nyumbani" class="flex items-center gap-2 md:gap-3">
+                        <img src="assets/logo.png" alt="Madrasatul Ibadu-rrahman" class="h-10 md:h-12 w-auto object-contain drop-shadow-sm" loading="eager">
+                        <span class="text-lg md:text-xl lg:text-2xl font-bold text-primary tracking-tight">Madrasatul Ibadu-rrahman</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-baseline space-x-6 xl:space-x-8">
+                        <a href="#nyumbani" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.home">Nyumbani</a>
+                        <a href="#kuhusu" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.about">Kuhusu Kitaasisi</a>
+                        <a href="#masomo" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.curriculum">Masomo/Mitaala</a>
+                        <a href="#ada" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.fees">Ada na Michango</a>
+                        <a href="#matukio" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.events">Matukio</a>
+                        <a href="#matangazo" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.announcements">Matangazo</a>
+                        <a href="#sajili" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.register">Sajili / Fomu</a>
+                        <a href="#downloads" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.downloads">Vipakuliwa</a>
+                        <a href="location.html" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.locations">Maeneo</a>
+                        <a href="contact.html" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.contact">Mawasiliano</a>
+                        <div class="relative">
+                            <button id="langDropdownBtn" class="flex items-center space-x-1 text-charcoal hover:text-accent font-medium text-sm xl:text-base" type="button">
+                                <i class="fas fa-globe"></i>
+                                <span data-i18n="nav.lang">Lugha</span>
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div id="langDropdown" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black/5">
+                                <button class="lang-btn block w-full text-left px-4 py-2 text-sm hover:bg-cream" data-lang="sw">🇹🇿 Kiswahili</button>
+                                <button class="lang-btn block w-full text-left px-4 py-2 text-sm hover:bg-cream" data-lang="en">🇬🇧 English</button>
+                                <button class="lang-btn block w-full text-left px-4 py-2 text-sm hover:bg-cream" data-lang="ar">🇸🇦 العربية</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-charcoal hover:text-accent hover:bg-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-all duration-300">
+                        <span class="sr-only">Fungua menyu</span>
+                        <i id="menu-icon" class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="lg:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg border-t">
+                <a href="#nyumbani" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.home">Nyumbani</a>
+                <a href="#kuhusu" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.about">Kuhusu Kitaasisi</a>
+                <a href="#masomo" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.curriculum">Masomo/Mitaala</a>
+                <a href="#ada" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.fees">Ada na Michango</a>
+                <a href="#matukio" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.events">Matukio</a>
+                <a href="#matangazo" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.announcements">Matangazo</a>
+                <a href="#sajili" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.register">Sajili / Fomu</a>
+                <a href="#downloads" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.downloads">Downloads</a>
+                <a href="location.html" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.locations">Maeneo</a>
+                <a href="contact.html" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.contact">Mawasiliano</a>
+                <div class="px-3 py-2">
+                    <button class="lang-btn px-2 py-1 rounded hover:bg-cream mr-2" data-lang="sw">🇹🇿 Kiswahili</button>
+                    <button class="lang-btn px-2 py-1 rounded hover:bg-cream mr-2" data-lang="en">🇬🇧 English</button>
+                    <button class="lang-btn px-2 py-1 rounded hover:bg-cream" data-lang="ar">🇸🇦 العربية</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="nyumbani" class="relative bg-gradient-to-br from-primary via-green-700 to-darkGreen py-16 md:py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-islamic-pattern opacity-10"></div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-gold/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="fade-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+                        <i class="fas fa-star text-gold mr-2"></i>
+                        <span class="text-white text-sm font-medium" data-i18n="hero.badge">Baraka na Elimu ya Kiislamu</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6" data-i18n="hero.title">
+                        Kutoa Elimu ya Dini na Maadili Mema ya Kiislamu
+                    </h1>
+                    <p class="text-lg md:text-xl text-green-100 mb-8 leading-relaxed" data-i18n="hero.subtitle">
+                        Madrasatul Ibadu-rrahman inajitahidi kukuza ujifunzaji wa Qur'an Tukufu, Hadithi za Mtume (s.a.w), Fiqh na maadili mema kwa watoto na vijana kwa njia ya kisasa na yenye heshima.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#sajili" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gold to-accent text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group">
+                            <i class="fas fa-user-plus mr-2 group-hover:animate-pulse"></i>
+                            <span data-i18n="hero.cta1">Jiunge Nasi</span>
+                        </a>
+                        <a href="#kuhusu" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-300">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            <span data-i18n="hero.cta2">Soma Zaidi</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="fade-in hidden lg:block">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 flex items-center justify-center">
+                            <div class="text-center p-8">
+                                <i class="fas fa-mosque text-gold text-8xl mb-4"></i>
+                                <div class="font-arabic text-white text-2xl mb-2" data-i18n="hero.basmala">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+                                <p class="text-green-100" data-i18n="hero.quote">[Andika Maneno ya Kutiia Moyo Hapa]</p>
+                                <p class="text-gold mt-2 font-medium" data-i18n="hero.info">[Ingiza Taarifa Muhimu Hapa]</p>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gold rounded-full opacity-20 animate-pulse"></div>
+                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-lightGreen rounded-full opacity-20 animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Kuhusu Sisi) -->
+    <section id="kuhusu" class="py-16 md:py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal mb-4" data-i18n="about.title">
+                    Kuhusu Kitaasisi - Madrasatul Ibadu-rrahman
+                </h2>
+                <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto" data-i18n="about.desc">
+                    [Ingiza Maelezo Mafupi Kuhusu Madrasa Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                </p>
+                <div class="mt-6 w-24 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Vision (Dira) -->
+                <div class="fade-in bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border-t-4 border-primary">
+                    <div class="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+                        <i class="fas fa-eye text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-charcoal mb-4" data-i18n="about.vision.title">Dira (Vision)</h3>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="about.vision.desc">
+                        [Ingiza Dira ya Madrasa Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.]
+                    </p>
+                </div>
+
+                <!-- Mission (Dhima) -->
+                <div class="fade-in bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border-t-4 border-accent">
+                    <div class="flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-6">
+                        <i class="fas fa-bullseye text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-charcoal mb-4" data-i18n="about.mission.title">Dhima (Mission)</h3>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="about.mission.desc">
+                        [Ingiza Dhima ya Madrasa Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.]
+                    </p>
+                </div>
+
+                <!-- Core Values (Maadili) -->
+                <div class="fade-in bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border-t-4 border-gold md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center justify-center w-16 h-16 bg-gold/10 rounded-full mb-6">
+                        <i class="fas fa-star text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-charcoal mb-4" data-i18n="about.values.title">Maadili ya Madrasa (Core Values)</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span data-i18n="about.values.v1">[Ingiza Moja ya Maadili Hapa - Lorem Ipsum Placeholder]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span data-i18n="about.values.v2">[Ingiza Pili ya Maadili Hapa - Lorem Ipsum Placeholder]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span data-i18n="about.values.v3">[Ingiza Tatu ya Maadili Hapa - Lorem Ipsum Placeholder]</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section (Masomo na Mitaala) -->
+    <section id="masomo" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal mb-4" data-i18n="curriculum.title">
+                    Masomo na Mitaala
+                </h2>
+                <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto" data-i18n="curriculum.desc">
+                    [Ingiza Maelezo Mafupi Kuhusu Mitaala Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                </p>
+                <div class="mt-6 w-24 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 fade-in">
+                <button class="filter-btn active px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 bg-primary text-white shadow-md" data-filter="all" data-i18n="curriculum.all">
+                    Yote
+                </button>
+                <button class="filter-btn px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-charcoal hover:bg-primary hover:text-white" data-filter="quran" data-i18n="curriculum.quran">
+                    Qur'an
+                </button>
+                <button class="filter-btn px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-charcoal hover:bg-primary hover:text-white" data-filter="lugha" data-i18n="curriculum.arabic">
+                    Lugha ya Kiarabu
+                </button>
+                <button class="filter-btn px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-charcoal hover:bg-primary hover:text-white" data-filter="fiqh" data-i18n="curriculum.fiqh">
+                    Fiqh na Ibadah
+                </button>
+                <button class="filter-btn px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-charcoal hover:bg-primary hover:text-white" data-filter="seerah" data-i18n="curriculum.seerah">
+                    Seerah & Hadithi
+                </button>
+            </div>
+
+            <!-- Curriculum Cards Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Quran Card -->
+                <div class="curriculum-card fade-in" data-category="quran">
+                    <div class="bg-gradient-to-br from-primary to-darkGreen rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-white transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center w-14 h-14 bg-white/20 rounded-full mb-4">
+                            <i class="fas fa-quran text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Qur'an Tukufu</h3>
+                        <p class="text-green-100 text-sm md:text-base leading-relaxed">
+                            [Ingiza Maelezo Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.]
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tajweed Card -->
+                <div class="curriculum-card fade-in" data-category="quran">
+                    <div class="bg-gradient-to-br from-accent to-orange-600 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-white transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center w-14 h-14 bg-white/20 rounded-full mb-4">
+                            <i class="fas fa-book-open text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Tajweed</h3>
+                        <p class="text-orange-100 text-sm md:text-base leading-relaxed">
+                            [Ingiza Maelezo Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.]
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Arabic Language Card -->
+                <div class="curriculum-card fade-in" data-category="lugha">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-white transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center w-14 h-14 bg-white/20 rounded-full mb-4">
+                            <i class="fas fa-language text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Lugha ya Kiarabu</h3>
+                        <p class="text-blue-100 text-sm md:text-base leading-relaxed">
+                            [Ingiza Maelezo Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.]
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fiqh Card -->
+                <div class="curriculum-card fade-in" data-category="fiqh">
+                    <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-white transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center w-14 h-14 bg-white/20 rounded-full mb-4">
+                            <i class="fas fa-praying-hands text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Fiqh na Ibadah</h3>
+                        <p class="text-purple-100 text-sm md:text-base leading-relaxed">
+                            [Ingiza Maelezo Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.]
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Seerah Card -->
+                <div class="curriculum-card fade-in" data-category="seerah">
+                    <div class="bg-gradient-to-br from-teal-600 to-teal-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-white transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center w-14 h-14 bg-white/20 rounded-full mb-4">
+                            <i class="fas fa-star-and-crescent text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Seerah ya Mtume (s.a.w)</h3>
+                        <p class="text-teal-100 text-sm md:text-base leading-relaxed">
+                            [Ingiza Maelezo Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.]
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Akhlaq Card -->
+                <div class="curriculum-card fade-in" data-category="seerah">
+                    <div class="bg-gradient-to-br from-rose-600 to-rose-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-white transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center w-14 h-14 bg-white/20 rounded-full mb-4">
+                            <i class="fas fa-heart text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Akhlaq na Adab</h3>
+                        <p class="text-rose-100 text-sm md:text-base leading-relaxed">
+                            [Ingiza Maelezo Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fees Section (Ada na Michango) -->
+    <section id="ada" class="py-16 md:py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal mb-4" data-i18n="fees.title">
+                    Ada na Michango
+                </h2>
+                <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto" data-i18n="fees.desc">
+                    [Ingiza Maelezo Mafupi Kuhusu Ada na Michango Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                </p>
+                <div class="mt-6 w-24 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Period Toggle -->
+            <div class="flex justify-center mb-10 fade-in">
+                <div class="bg-white rounded-full p-1 shadow-md">
+                    <button class="fee-toggle active px-6 py-2 rounded-full font-medium transition-all duration-300 bg-primary text-white" data-period="monthly" data-i18n="fees.monthly">
+                        Kila Mwezi
+                    </button>
+                    <button class="fee-toggle px-6 py-2 rounded-full font-medium transition-all duration-300 text-charcoal hover:bg-primary hover:text-white" data-period="termly" data-i18n="fees.termly">
+                        Kila Muhula
+                    </button>
+                    <button class="fee-toggle px-6 py-2 rounded-full font-medium transition-all duration-300 text-charcoal hover:bg-primary hover:text-white" data-period="annually" data-i18n="fees.annually">
+                        Kila Mwaka
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fees Table -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gradient-to-r from-primary to-darkGreen text-white">
+                            <tr>
+                                <th class="px-4 md:px-6 py-4 text-left font-semibold text-sm md:text-base" data-i18n="fees.level">Kiwango cha Masomo</th>
+                                <th class="px-4 md:px-6 py-4 text-center font-semibold text-sm md:text-base" data-i18n="fees.entry">Ada ya Kiingilio</th>
+                                <th class="px-4 md:px-6 py-4 text-center font-semibold text-sm md:text-base fee-amount" data-monthly="[Mwezi TSH]" data-termly="[Muhula TSH]" data-annually="[Mwaka TSH]" data-i18n="fees.amount">Ada Kila Mwezi</th>
+                                <th class="px-4 md:px-6 py-4 text-center font-semibold text-sm md:text-base" data-i18n="fees.others">Michango Mingine</th>
+                                <th class="px-4 md:px-6 py-4 text-center font-semibold text-sm md:text-base" data-i18n="fees.notes">Maelezo</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-cream transition-colors duration-200">
+                                <td class="px-4 md:px-6 py-4 font-medium text-charcoal text-sm md:text-base">Darasa la Awali (Nursery)</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center font-semibold text-primary text-sm md:text-base fee-amount" data-monthly="[Mwezi TSH]" data-termly="[Muhula TSH]" data-annually="[Mwaka TSH]">[Mwezi TSH]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Maelezo]</td>
+                            </tr>
+                            <tr class="hover:bg-cream transition-colors duration-200 bg-gray-50">
+                                <td class="px-4 md:px-6 py-4 font-medium text-charcoal text-sm md:text-base">Darasa la Kwanza - Pili</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center font-semibold text-primary text-sm md:text-base fee-amount" data-monthly="[Mwezi TSH]" data-termly="[Muhula TSH]" data-annually="[Mwaka TSH]">[Mwezi TSH]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Maelezo]</td>
+                            </tr>
+                            <tr class="hover:bg-cream transition-colors duration-200">
+                                <td class="px-4 md:px-6 py-4 font-medium text-charcoal text-sm md:text-base">Darasa la Tatu - Tano</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center font-semibold text-primary text-sm md:text-base fee-amount" data-monthly="[Mwezi TSH]" data-termly="[Muhula TSH]" data-annually="[Mwaka TSH]">[Mwezi TSH]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Maelezo]</td>
+                            </tr>
+                            <tr class="hover:bg-cream transition-colors duration-200 bg-gray-50">
+                                <td class="px-4 md:px-6 py-4 font-medium text-charcoal text-sm md:text-base">Darasa la Sita - Nane</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center font-semibold text-primary text-sm md:text-base fee-amount" data-monthly="[Mwezi TSH]" data-termly="[Muhula TSH]" data-annually="[Mwaka TSH]">[Mwezi TSH]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Maelezo]</td>
+                            </tr>
+                            <tr class="hover:bg-cream transition-colors duration-200">
+                                <td class="px-4 md:px-6 py-4 font-medium text-charcoal text-sm md:text-base">Vijana (Juu ya Miaka 13)</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center font-semibold text-primary text-sm md:text-base fee-amount" data-monthly="[Mwezi TSH]" data-termly="[Muhula TSH]" data-annually="[Mwaka TSH]">[Mwezi TSH]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Ingiza Taarifa]</td>
+                                <td class="px-4 md:px-6 py-4 text-center text-gray-600 text-sm md:text-base">[Maelezo]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="text-center text-gray-600 mt-6 text-sm fade-in">
+                <i class="fas fa-info-circle mr-1"></i> <span data-i18n="fees.info">[Ingiza Maelezo Zaidi Kuhusu Malipo - Lorem ipsum dolor sit amet, consectetur adipiscing elit.]</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Registration Form (Fomu ya Kujiunga) -->
+    <section id="sajili" class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal mb-4" data-i18n="register.title">
+                    Fomu ya Kujiunga na Madrasatul Ibadu-rrahman
+                </h2>
+                <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="register.desc">
+                    [Ingiza Maelezo Mafupi Kuhusu Usajili Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                </p>
+                <div class="mt-6 w-24 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden fade-in">
+                <div class="bg-gradient-to-r from-primary to-darkGreen px-6 py-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white text-center" data-i18n="register.header">Taarifa za Mwanafunzi Mpya</h3>
+                </div>
+                <form id="registrationForm" novalidate class="p-6 md:p-8 space-y-6">
+                    <!-- Student Name -->
+                    <div>
+                        <label for="studentName" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.studentName">Jina la Mwanafunzi</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                        </label>
+                        <input type="text" id="studentName" name="studentName" class="uppercase-text" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                            placeholder="[Ingiza Jina Kamili la Mwanafunzi Hapa]" data-i18n-ph="form.studentName.ph">
+                        <p class="mt-1 text-sm text-red-500 hidden" id="error-studentName">Jina la mwanafunzi linahitajika</p>
+                    </div>
+
+                    <!-- Age/DOB and Class -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="dob" class="block text-sm font-semibold text-charcoal mb-2">
+                                <span data-i18n="form.dob">Tarehe ya Kuzaliwa</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                            </label>
+                            <input type="date" id="dob" name="dob" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                            <p class="mt-1 text-sm text-red-500 hidden" id="error-dob">Tarehe ya kuzaliwa inahitajika</p>
+                        </div>
+                        <div>
+                            <label for="requestedClass" class="block text-sm font-semibold text-charcoal mb-2">
+                                <span data-i18n="form.class">Kiwango cha Masomo Anachoomba</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                            </label>
+                            <select id="requestedClass" name="requestedClass" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                <option value="" data-i18n="form.class.ph">[Chagua Kiwango Hapa]</option>
+                                <option value="nursery" data-i18n="form.nursery">Darasa la Awali (Nursery)</option>
+                                <option value="std1-2" data-i18n="form.std12">Darasa la Kwanza - Pili</option>
+                                <option value="std3-5" data-i18n="form.std35">Darasa la Tatu - Tano</option>
+                                <option value="std6-8" data-i18n="form.std68">Darasa la Sita - Nane</option>
+                                <option value="youth" data-i18n="form.youth">Vijana (Juu ya Miaka 13)</option>
+                                <option value="other" data-i18n="form.other">Kiwango Kingine</option>
+                            </select>
+                            <p class="mt-1 text-sm text-red-500 hidden" id="error-requestedClass">Tafadhali chagua kiwango cha masomo</p>
+                        </div>
+                    </div>
+
+                    <!-- Parent/Guardian Name -->
+                    <div>
+                        <label for="parentName" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.parent">Jina la Mzazi/Mlezi</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                        </label>
+                        <input type="text" id="parentName" name="parentName" class="uppercase-text" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                            placeholder="[Ingiza Jina Kamili la Mzazi/Mlezi Hapa]" data-i18n-ph="form.parent.ph">
+                        <p class="mt-1 text-sm text-red-500 hidden" id="error-parentName">Jina la mzazi/mlezi linahitajika</p>
+                    </div>
+
+                    <!-- Phone and Email -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.phone">Namba ya Simu</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                            placeholder="[Ingiza Namba ya Simu Hapa]" data-i18n-ph="form.phone.ph">
+                            <p class="mt-1 text-sm text-red-500 hidden" id="error-phone">Namba ya simu inahitajika</p>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.email">Anwani ya Barua Pepe (Sio Lazima)</span>
+                        </label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                            placeholder="[Ingiza Barua Pepe Hapa]" data-i18n-ph="form.email.ph">
+                            <p class="mt-1 text-sm text-red-500 hidden" id="error-email">Tafadhali ingiza barua pepe sahihi</p>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div>
+                        <label for="address" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.address">Anwani Kamili</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                        </label>
+                        <textarea id="address" name="address" rows="3" class="uppercase-text" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
+                            placeholder="[Ingiza Anwani Kamili Hapa - Mtaa, Kata, Wilaya, n.k.]" data-i18n-ph="form.address.ph"></textarea>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="error-address">Anwani inahitajika</p>
+                    </div>
+
+                    <!-- Additional Info -->
+                    <div>
+                        <label for="additionalInfo" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.extra">Maelezo Mengine (Sio Lazima)</span>
+                        </label>
+                        <textarea id="additionalInfo" name="additionalInfo" rows="3"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
+                            placeholder="[Ingiza Maelezo Mengine Kama Yapo Hapa]" data-i18n-ph="form.extra.ph"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-4">
+                        <button type="submit"
+                            class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-primary to-darkGreen text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center mx-auto">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            <span data-i18n="form.submit">Tuma Maombi ya Kujiunga</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcements / News (Habari na Matukio) -->
+    <section id="matukio" class="py-16 md:py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal mb-4">
+                    Habari na Matukio
+                </h2>
+                <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+                    [Ingiza Maelezo Mafupi Kuhusu Matukio na Tangazo Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                </p>
+                <div class="mt-6 w-24 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="fade-in bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
+                    <div class="bg-gradient-to-r from-primary to-darkGreen px-6 py-3">
+                        <div class="flex items-center justify-between text-white">
+                            <span class="font-semibold">Tangazo</span>
+                            <span class="text-sm">[Ingiza Tarehe Hapa]</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-charcoal mb-2">[Kichwa cha Tangazo Hapa]</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            [Ingiza Maelezo ya Tangazo Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
+                    <div class="bg-gradient-to-r from-accent to-orange-600 px-6 py-3">
+                        <div class="flex items-center justify-between text-white">
+                            <span class="font-semibold">Tukio</span>
+                            <span class="text-sm">[Ingiza Tarehe Hapa]</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-charcoal mb-2">[Kichwa cha Tukio Hapa]</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            [Ingiza Maelezo ya Tukio Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-3">
+                        <div class="flex items-center justify-between text-white">
+                            <span class="font-semibold">Mtihani</span>
+                            <span class="text-sm">[Ingiza Tarehe Hapa]</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-charcoal mb-2">[Kichwa cha Mtihani Hapa]</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            [Ingiza Maelezo ya Mtihani Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Announcements Section -->
+    <section id="matangazo" class="py-16 md:py-24 bg-cream relative overflow-hidden">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="announcements.title">Matangazo</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="announcements.desc">Habari na taarifa za hivi karibuni kutoka Madrasatul Ibadu-rrahman.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-accent fade-in">
+                    <span class="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full mb-3" data-i18n="announcements.a1Date">Hivi Karibuni</span>
+                    <h3 class="text-lg font-bold text-charcoal mb-2" data-i18n="announcements.a1Title">Usajili Umefunguliwa</h3>
+                    <p class="text-sm text-gray-600" data-i18n="announcements.a1Body">Usajili wa mwaka mpya wa masomo umefunguliwa. Karibu ujiunge nasi.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-primary fade-in">
+                    <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-3" data-i18n="announcements.a2Date">Tangazo</span>
+                    <h3 class="text-lg font-bold text-charcoal mb-2" data-i18n="announcements.a2Title">Siku ya Wazazi</h3>
+                    <p class="text-sm text-gray-600" data-i18n="announcements.a2Body">Tunakaribisha wazazi wote kwenye mkutano wa wazazi Jumamosi ijayo.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-gold fade-in">
+                    <span class="inline-block px-3 py-1 bg-gold/10 text-accent text-xs font-semibold rounded-full mb-3" data-i18n="announcements.a3Date">Tangazo</span>
+                    <h3 class="text-lg font-bold text-charcoal mb-2" data-i18n="announcements.a3Title">Mashindano ya Qur'an</h3>
+                    <p class="text-sm text-gray-600" data-i18n="announcements.a3Body">Mashindano ya kukariri Qur'an yatafanyika mwishoni mwa muhula huu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-4" data-i18n="downloads.title">Downloads</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="downloads.desc">Pakua nyaraka muhimu za madrasa kwa urahisi.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Fee Structure -->
+                <div class="bg-white border-2 border-blue-100 rounded-xl p-6 text-center shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 fade-in flex flex-col">
+                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-50 rounded-full flex items-center justify-center">
+                        <i class="fas fa-file-lines text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-blue-700 mb-2" data-i18n="downloads.feeTitle">Fee Structure</h3>
+                    <p class="text-sm text-gray-600 mb-5 flex-1" data-i18n="downloads.feeDesc">Orodha kamili ya ada kwa kila kiwango cha masomo.</p>
+                    <a href="downloads/fee-structure.pdf" download class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                        <i class="fas fa-download"></i>
+                        <span data-i18n="downloads.button">Pakua PDF</span>
+                    </a>
+                </div>
+
+                <!-- School Calendar -->
+                <div class="bg-white border-2 border-blue-100 rounded-xl p-6 text-center shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 fade-in flex flex-col">
+                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-50 rounded-full flex items-center justify-center">
+                        <i class="fas fa-file-lines text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-blue-700 mb-2" data-i18n="downloads.calendarTitle">School Calendar</h3>
+                    <p class="text-sm text-gray-600 mb-5 flex-1" data-i18n="downloads.calendarDesc">Tarehe muhimu, likizo na matukio ya mwaka mzima.</p>
+                    <a href="downloads/school-calendar.pdf" download class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                        <i class="fas fa-download"></i>
+                        <span data-i18n="downloads.button">Download PDF</span>
+                    </a>
+                </div>
+
+                <!-- Textbook List -->
+                <div class="bg-white border-2 border-blue-100 rounded-xl p-6 text-center shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 fade-in flex flex-col">
+                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-50 rounded-full flex items-center justify-center">
+                        <i class="fas fa-file-lines text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-blue-700 mb-2" data-i18n="downloads.bookTitle">Textbook List</h3>
+                    <p class="text-sm text-gray-600 mb-5 flex-1" data-i18n="downloads.bookDesc">Vitabu na vifaa vinavyohitajika kwa kila darasa.</p>
+                    <a href="downloads/textbook-list.pdf" download class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                        <i class="fas fa-download"></i>
+                        <span data-i18n="downloads.button">Download PDF</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12 md:py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-islamic-pattern opacity-5"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-darkGreen rounded-full flex items-center justify-center">
+                            <i class="fas fa-mosque text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl md:text-2xl font-bold">Madrasatul Ibadu-rrahman</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-4 max-w-md">
+                        [Ingiza Maelezo Mafupi Kuhusu Madrasa Hapa - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="flex items-center justify-center w-9 h-9 bg-gray-700 rounded-full hover:bg-primary transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-center w-9 h-9 bg-gray-700 rounded-full hover:bg-primary transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-center w-9 h-9 bg-gray-700 rounded-full hover:bg-primary transition-colors duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-center w-9 h-9 bg-gray-700 rounded-full hover:bg-primary transition-colors duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Viungo Haraka</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#nyumbani" class="text-gray-300 hover:text-gold transition-colors duration-300">Nyumbani</a></li>
+                        <li><a href="#kuhusu" class="text-gray-300 hover:text-gold transition-colors duration-300">Kuhusu Kitaasisi</a></li>
+                        <li><a href="#masomo" class="text-gray-300 hover:text-gold transition-colors duration-300">Masomo/Mitaala</a></li>
+                        <li><a href="#ada" class="text-gray-300 hover:text-gold transition-colors duration-300">Ada na Michango</a></li>
+                        <li><a href="#matukio" class="text-gray-300 hover:text-gold transition-colors duration-300">Matukio</a></li>
+                        <li><a href="#matangazo" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.announcements">Matangazo</a></li>
+                        <li><a href="#sajili" class="text-gray-300 hover:text-gold transition-colors duration-300">Sajili / Fomu</a></li>
+                        <li><a href="#downloads" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.downloads">Downloads</a></li>
+                        <li><a href="location.html" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.locations">Maeneo</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.contact">Mawasiliano</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Taarifa Muhimu</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>[Ingiza Tangazo Muhimu Hapa]</li>
+                        <li>[Ingiza Taarifa Muhimu Hapa]</li>
+                        <li>[Ingiza Taarifa Muhimu Hapa]</li>
+                    </ul>
+                    <div class="mt-6 bg-primary/20 rounded-lg p-4 border border-primary/30">
+                        <p class="text-gold font-arabic text-lg text-center mb-1">اللّهُ أَكْبَرُ</p>
+                        <p class="text-gray-300 text-sm text-center italic">[Ingiza Dua Fupi Hapa]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300 text-sm text-center md:text-left">
+                        &copy; <span id="currentYear"></span> Madrasatul Ibadu-rrahman. Haki Zote Zimehifadhiwa.
+                    </p>
+                    <p class="text-gray-400 text-xs mt-4 md:mt-0 text-center md:text-right">
+                        Tovuti imejengwa kwa ajili ya Madrasatul Ibadu-rrahman. Maelezo yote ni ya mfano (placeholder) na yanaweza kubadilishwa kwa urahisi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Apply Now Button -->
+    <a href="#sajili" id="floatingApply" class="apply-glow float fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 md:gap-3 pl-1.5 pr-4 py-1.5 rounded-full bg-gradient-to-r from-accent to-gold text-white shadow-2xl hover:brightness-110 transition duration-300">
+        <span class="w-9 h-9 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow">
+            <i class="fas fa-graduation-cap text-accent text-base md:text-xl"></i>
+        </span>
+        <span class="flex flex-col leading-none text-left">
+            <span class="text-[9px] md:text-[10px] font-semibold tracking-wider" data-i18n="cta.admissionOpen">ADMISSION IS OPEN</span>
+            <span class="text-xs md:text-sm font-extrabold tracking-wide mt-0.5" data-i18n="cta.applyNow">APPLY NOW</span>
+        </span>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-24 right-6 w-12 h-12 bg-gradient-to-br from-primary to-darkGreen text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hidden z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div id="modalContent" class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center transform scale-95 transition-all duration-300">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-check-circle text-green-600 text-4xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-charcoal mb-4" data-i18n="modal.title">Umefaulu Kutuma Maombi!</h3>
+            <p class="text-gray-600 leading-relaxed mb-6" data-i18n="modal.body">
+                Asante kwa kutuma maombi yako ya kujiunga na Madrasatul Ibadu-rrahman. Tutawasiliana nawe kwa haraka kupitia namba ya simu uliyoingiza kwa maelezo zaidi.
+            </p>
+            <button id="closeModal" class="px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-darkGreen transition-colors duration-300" data-i18n="modal.close">
+                Sawa
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+            });
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function setActiveNavLink() {
+            const scrollY = window.scrollY + 100;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active-nav');
+                        }
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', setActiveNavLink);
+
+        // Fade in animation on scroll
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        fadeInElements.forEach(el => observer.observe(el));
+
+        // Curriculum filter tabs
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const curriculumCards = document.querySelectorAll('.curriculum-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-md');
+                    b.classList.add('bg-gray-200', 'text-charcoal');
+                });
+                btn.classList.remove('bg-gray-200', 'text-charcoal');
+                btn.classList.add('active', 'bg-primary', 'text-white', 'shadow-md');
+                const filterValue = btn.getAttribute('data-filter');
+                curriculumCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.classList.add('visible'), 10);
+                    } else {
+                        card.classList.remove('visible');
+                        setTimeout(() => card.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+
+        // Fees toggle
+        const feeToggles = document.querySelectorAll('.fee-toggle');
+        const feeAmounts = document.querySelectorAll('.fee-amount');
+
+        feeToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                feeToggles.forEach(t => {
+                    t.classList.remove('active', 'bg-primary', 'text-white');
+                    t.classList.add('text-charcoal');
+                });
+                toggle.classList.remove('text-charcoal');
+                toggle.classList.add('active', 'bg-primary', 'text-white');
+                const period = toggle.getAttribute('data-period');
+                feeAmounts.forEach(amount => {
+                    amount.textContent = amount.getAttribute(`data-${period}`);
+                });
+            });
+        });
+
+        // Registration form validation
+        const registrationForm = document.getElementById('registrationForm');
+        const successModal = document.getElementById('successModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function showError(id) {
+            const errorEl = document.getElementById(`error-${id}`);
+            if (errorEl) errorEl.classList.remove('hidden');
+            const lang = localStorage.getItem('madrasatul_lang') || 'en';
+            if (errorEl && translations[lang] && translations[lang]['errors.'+id]) {
+              errorEl.textContent = translations[lang]['errors.'+id];
+            }
+            document.getElementById(id).classList.add('border-red-500');
+        }
+
+        function hideError(id) {
+            const errorEl = document.getElementById(`error-${id}`);
+            if (errorEl) errorEl.classList.add('hidden');
+            document.getElementById(id).classList.remove('border-red-500');
+        }
+
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            let isValid = true;
+            const requiredFields = ['studentName', 'dob', 'requestedClass', 'parentName', 'phone', 'address'];
+            requiredFields.forEach(field => {
+                const el = document.getElementById(field);
+                if (!el.value.trim()) { showError(field); isValid = false; } else { hideError(field); }
+            });
+            const emailEl = document.getElementById('email');
+            if (emailEl.value.trim() && !validateEmail(emailEl.value)) { showError('email'); isValid = false; } else if (emailEl.value.trim()) { hideError('email'); }
+            if (isValid) {
+                const formData = new FormData(registrationForm);
+                try {
+                    const resp = await fetch('api/register.php', { method: 'POST', body: formData });
+                    const data = await resp.json();
+                    if (data.success) {
+                        registrationForm.reset();
+                        requiredFields.forEach(f => hideError(f));
+                        hideError('email');
+                        successModal.classList.remove('hidden');
+                        modalContent.classList.remove('scale-95');
+                        modalContent.classList.add('scale-100');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        if (data.errors) data.errors.forEach(f => showError(f));
+                    }
+                } catch (err) {
+                    alert('Registration failed. Please try again.');
+                }
+            }
+        });
+
+        function closeModal() {
+            successModal.classList.add('hidden');
+            modalContent.classList.add('scale-95');
+            modalContent.classList.remove('scale-100');
+            document.body.style.overflow = '';
+        }
+        closeModalBtn.addEventListener('click', closeModal);
+        successModal.addEventListener('click', (e) => { if (e.target === successModal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !successModal.classList.contains('hidden')) closeModal(); });
+
+        // Contact form (now on contact.html)
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                contactForm.reset();
+                alert('Ujumbe wako umetumwa kwa mafanikio! Asante kwa kuwasiliana na Madrasatul Ibadu-rrahman.');
+            });
+        }
+
+        // Back to top
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) backToTopBtn.classList.remove('hidden');
+            else backToTopBtn.classList.add('hidden');
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Language system
+        const translations = {};
+        const langFiles = {sw: 'locales/sw.json', en: 'locales/en.json', ar: 'locales/ar.json'};
+        async function loadLang(lang){
+          if(!translations[lang]){
+            try{
+              const res = await fetch(langFiles[lang], {cache:'no-cache'});
+              translations[lang] = await res.json();
+            }catch(e){ translations[lang] = {}; }
+          }
+          document.querySelectorAll('[data-i18n]').forEach(el=>{
+            const key = el.getAttribute('data-i18n');
+            if(translations[lang][key]) el.textContent = translations[lang][key];
+          });
+          document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+            const key = el.getAttribute('data-i18n-ph');
+            if(translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
+          });
+          document.documentElement.lang = lang;
+          document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+          localStorage.setItem('madrasatul_lang', lang);
+        }
+        document.querySelectorAll('.lang-btn').forEach(btn=>{
+          btn.addEventListener('click', ()=>{ loadLang(btn.getAttribute('data-lang')); document.getElementById('langDropdown').classList.add('hidden'); });
+        });
+        const ddBtn = document.getElementById('langDropdownBtn');
+        if(ddBtn){
+          ddBtn.addEventListener('click', (e)=>{ e.stopPropagation(); document.getElementById('langDropdown').classList.toggle('hidden'); });
+          document.addEventListener('click', ()=>document.getElementById('langDropdown').classList.add('hidden'));
+        }
+        const saved = localStorage.getItem('madrasatul_lang') || 'en';
+        loadLang(saved);
+
+        // First visit language popup
+        if(!localStorage.getItem('madrasatul_lang_chosen')){
+          const popup = document.createElement('div');
+          popup.className = 'fixed inset-0 bg-black/60 z-[9999] flex items-center justify-center p-4';
+          popup.innerHTML = `<div class="bg-white rounded-xl max-w-md w-full p-6 text-center">
+            <h3 class="text-xl font-bold mb-2">Choose your language</h3>
+            <p class="mb-2" dir="ltr">Chagua lugha yako</p>
+            <p class="mb-4" dir="rtl">اختر لغتك</p>
+            <div class="flex flex-col gap-2">
+              <button class="choose px-4 py-2 bg-primary text-white rounded" data-lang="sw">🇹🇿 Kiswahili</button>
+              <button class="choose px-4 py-2 bg-primary text-white rounded" data-lang="en">🇬🇧 English</button>
+              <button class="choose px-4 py-2 bg-primary text-white rounded" data-lang="ar">🇸🇦 العربية</button>
+            </div>
+          </div>`;
+          document.body.appendChild(popup);
+          popup.querySelectorAll('.choose').forEach(b=>{
+            b.addEventListener('click', ()=>{
+              localStorage.setItem('madrasatul_lang_chosen','1');
+              loadLang(b.getAttribute('data-lang'));
+              popup.remove();
+            });
+          });
+        }
+    </script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const upper = ['studentName','parentName','address'];
+  const toUpper = function(){ this.value = this.value.toUpperCase(); };
+  upper.forEach(function(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    ['input','blur','change'].forEach(function(ev){ el.addEventListener(ev, toUpper); });
+  });
+});
+</script>
+</body>
+</html>

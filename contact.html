@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="sw" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mawasiliano | Madrasatul Ibadu-rrahman</title>
+    <meta name="description" content="Wasiliana na Madrasatul Ibadu-rrahman - anwani, simu, barua pepe na fomu ya kutuma ujumbe.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#047857',
+                        accent: '#D97706',
+                        cream: '#FEF7ED',
+                        charcoal: '#1F2937',
+                        gold: '#F59E0B',
+                        lightGreen: '#10B981',
+                        darkGreen: '#065F46'
+                    },
+                    fontFamily: {
+                        'arabic': ['Amiri', 'serif'],
+                        'swahili': ['Poppins', 'Inter', 'system-ui', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'islamic-pattern': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23D97706\" fill-opacity=\"0.08\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        .uppercase-text { text-transform: uppercase; }
+
+        @keyframes applyGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.55), 0 8px 20px rgba(217, 119, 6, 0.35); }
+            50% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0), 0 8px 26px rgba(217, 119, 6, 0.55); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+            50% { transform: translateY(-10px) rotate(1.5deg); }
+        }
+        .float { animation: float 3s ease-in-out infinite; }
+        .apply-glow { animation: applyGlow 2s ease-in-out infinite, float 3s ease-in-out infinite; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .active-nav {
+            color: #F59E0B;
+            position: relative;
+        }
+        .active-nav::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #F59E0B;
+            border-radius: 2px;
+        }
+        [dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+        [dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+        [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+        [dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+        [dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
+        [dir="rtl"] .text-left { text-align: right; }
+        [dir="rtl"] .text-right { text-align: left; }
+        [dir="rtl"] body { font-family: 'Amiri', 'Noto Naskh Arabic', 'Poppins', system-ui, sans-serif; }
+        [dir="ltr"] body { font-family: 'Poppins', 'Inter', system-ui, sans-serif; }
+    </style>
+</head>
+
+<body class="font-swahili text-charcoal bg-white antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-2 md:gap-3">
+                        <img src="assets/logo.png" alt="Madrasatul Ibadu-rrahman" class="h-10 md:h-12 w-auto object-contain drop-shadow-sm" loading="eager">
+                        <span class="text-lg md:text-xl lg:text-2xl font-bold text-primary tracking-tight">Madrasatul Ibadu-rrahman</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-baseline space-x-6 xl:space-x-8">
+                        <a href="index.html" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.home">Nyumbani</a>
+                        <a href="index.html#kuhusu" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.about">Kuhusu Kitaasisi</a>
+                        <a href="index.html#masomo" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.curriculum">Masomo/Mitaala</a>
+                        <a href="index.html#ada" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.fees">Ada na Michango</a>
+                        <a href="index.html#matukio" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.events">Matukio</a>
+                        <a href="index.html#matangazo" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.announcements">Matangazo</a>
+                        <a href="index.html#sajili" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.register">Sajili / Fomu</a>
+                        <a href="index.html#downloads" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.downloads">Vipakuliwa</a>
+                        <a href="location.html" class="nav-link text-charcoal hover:text-accent transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.locations">Maeneo</a>
+                        <a href="contact.html" class="nav-link active-nav transition-colors duration-300 font-medium text-sm xl:text-base" data-i18n="nav.contact">Mawasiliano</a>
+                        <div class="relative">
+                            <button id="langDropdownBtn" class="flex items-center space-x-1 text-charcoal hover:text-accent font-medium text-sm xl:text-base" type="button">
+                                <i class="fas fa-globe"></i>
+                                <span data-i18n="nav.lang">Lugha</span>
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div id="langDropdown" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black/5">
+                                <button class="lang-btn block w-full text-left px-4 py-2 text-sm hover:bg-cream" data-lang="sw">🇹🇿 Kiswahili</button>
+                                <button class="lang-btn block w-full text-left px-4 py-2 text-sm hover:bg-cream" data-lang="en">🇬🇧 English</button>
+                                <button class="lang-btn block w-full text-left px-4 py-2 text-sm hover:bg-cream" data-lang="ar">🇸🇦 العربية</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-charcoal hover:text-accent hover:bg-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-all duration-300">
+                        <span class="sr-only">Fungua menyu</span>
+                        <i id="menu-icon" class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="lg:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg border-t">
+                <a href="index.html" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.home">Nyumbani</a>
+                <a href="index.html#kuhusu" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.about">Kuhusu Kitaasisi</a>
+                <a href="index.html#masomo" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.curriculum">Masomo/Mitaala</a>
+                <a href="index.html#ada" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.fees">Ada na Michango</a>
+                <a href="index.html#matukio" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.events">Matukio</a>
+                <a href="index.html#matangazo" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.announcements">Matangazo</a>
+                <a href="index.html#sajili" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.register">Sajili / Fomu</a>
+                <a href="index.html#downloads" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.downloads">Downloads</a>
+                <a href="location.html" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:text-accent hover:bg-cream transition-all duration-300" data-i18n="nav.locations">Maeneo</a>
+                <a href="contact.html" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-accent font-semibold transition-all duration-300" data-i18n="nav.contact">Mawasiliano</a>
+                <div class="px-3 py-2">
+                    <button class="lang-btn px-2 py-1 rounded hover:bg-cream mr-2" data-lang="sw">🇹🇿 Kiswahili</button>
+                    <button class="lang-btn px-2 py-1 rounded hover:bg-cream mr-2" data-lang="en">🇬🇧 English</button>
+                    <button class="lang-btn px-2 py-1 rounded hover:bg-cream" data-lang="ar">🇸🇦 العربية</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="relative bg-gradient-to-br from-primary via-green-700 to-darkGreen py-12 md:py-16 overflow-hidden">
+        <div class="absolute inset-0 bg-islamic-pattern opacity-10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-3" data-i18n="nav.contact">Mawasiliano</h1>
+            <p class="text-green-100 max-w-2xl mx-auto">Tunafurahi kusikia kutoka kwako. Wasiliana nasi kwa njia yoyote hapa chini.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="mawasiliano" class="py-16 md:py-24 bg-cream relative overflow-hidden">
+        <div class="absolute inset-0 bg-islamic-pattern opacity-5"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6">Wasiliana Nasi</h2>
+                    <p class="text-gray-600 mb-8">Kwa maswali kuhusu usajili, masomo au shughuli zetu, tafadhali wasiliana nasi kwa taarifa zifuatazo.</p>
+
+                    <div class="space-y-5">
+                        <div class="flex items-start space-x-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-darkGreen rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-location-dot text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-charcoal mb-1">Anwani</h3>
+                                <p class="text-gray-600 text-sm" data-i18n="locations.mainAddress">Mtaa wa Uhuru, Kariakoo, Dar es Salaam</p>
+                            </div>
+                        </div>
+
+                        <div class="fade-in flex items-start gap-4 bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+                            <div class="w-12 h-12 bg-gradient-to-br from-accent to-gold rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-charcoal mb-1">Simu</h3>
+                                <a href="tel:+255712000001" class="block text-gray-600 hover:text-accent transition-colors">+255 712 000 001</a>
+                                <a href="tel:+255712000002" class="block text-gray-600 hover:text-accent transition-colors">+255 712 000 002</a>
+                            </div>
+                        </div>
+
+                        <div class="fade-in flex items-start gap-4 bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-lightGreen rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-charcoal mb-1">Barua Pepe</h3>
+                                <a href="mailto:info@ibadurrahman.ac.tz" class="block text-gray-600 hover:text-accent transition-colors">info@ibadurrahman.ac.tz</a>
+                                <a href="mailto:usajili@ibadurrahman.ac.tz" class="block text-gray-600 hover:text-accent transition-colors">usajili@ibadurrahman.ac.tz</a>
+                            </div>
+                        </div>
+
+                        <div class="fade-in flex items-start gap-4 bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+                            <div class="w-12 h-12 bg-gradient-to-br from-gold to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-charcoal mb-1">Saa za Kufungua</h3>
+                                <p class="text-gray-600" data-i18n="locations.mainHours">Jumatatu - Ijumaa: 07:00 - 18:00; Jumamosi: 08:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100">
+                        <h3 class="text-2xl font-bold text-charcoal mb-6">Tuma Ujumbe</h3>
+                        <form id="contactForm" novalidate class="space-y-5">
+                            <div>
+                                <label for="contactName" class="block text-sm font-semibold text-charcoal mb-2">Jina Kamili</label>
+                                <input type="text" id="contactName" name="name" required
+                                    class="uppercase-text w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                    placeholder="[Weka Jina Lako Hapa]">
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="contactEmail" class="block text-sm font-semibold text-charcoal mb-2">Barua Pepe</label>
+                                    <input type="email" id="contactEmail" name="email" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                        placeholder="[Weka Barua Pepe Yako Hapa]">
+                                </div>
+                                <div>
+                                    <label for="contactPhone" class="block text-sm font-semibold text-charcoal mb-2">Namba ya Simu</label>
+                                    <input type="tel" id="contactPhone" name="phone" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                        placeholder="[Weka Namba ya Simu Hapa]">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="contactSubject" class="block text-sm font-semibold text-charcoal mb-2">Kichwa cha Ujumbe</label>
+                                <input type="text" id="contactSubject" name="subject" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                    placeholder="[Weka Kichwa cha Ujumbe Hapa]">
+                            </div>
+                            <div>
+                                <label for="contactMessage" class="block text-sm font-semibold text-charcoal mb-2">Ujumbe</label>
+                                <textarea id="contactMessage" name="message" rows="5" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
+                                    placeholder="[Andika Ujumbe Wako Hapa]"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full px-6 py-3 bg-gradient-to-r from-primary to-darkGreen text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300">
+                                <i class="fas fa-paper-plane mr-2"></i>Tuma Ujumbe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map (Main Branch) -->
+    <section class="pb-16 md:pb-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                <iframe src="https://www.google.com/maps?q=Kariakoo,+Dar+es+Salaam&output=embed" class="w-full h-80 md:h-96 border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Main Branch - Google Maps"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12 md:py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-islamic-pattern opacity-5"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-11 h-11 bg-white rounded-full p-1 flex items-center justify-center flex-shrink-0">
+                            <img src="assets/logo.png" alt="Madrasatul Ibadu-rrahman" class="h-9 w-9 object-contain">
+                        </div>
+                        <span class="text-xl md:text-2xl font-bold">Madrasatul Ibadu-rrahman</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-4 max-w-md">
+                        Kusajili wanafunzi, kufundisha Qur'an na elimu ya dini kwa misingi ya maadili mema, na kuwalea wanafunzi kuwa wabora wa jamii.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="flex items-center justify-center w-9 h-9 bg-gray-700 rounded-full hover:bg-primary transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-center w-9 h-9 bg-gray-700 rounded-full hover:bg-primary transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-center w-9 h-9 bg-gray-700 rounded-full hover:bg-primary transition-colors duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-center w-9 h-9 bg-gray-700 rounded-full hover:bg-primary transition-colors duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Viungo Haraka</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.home">Nyumbani</a></li>
+                        <li><a href="index.html#kuhusu" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.about">Kuhusu Kitaasisi</a></li>
+                        <li><a href="index.html#matangazo" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.announcements">Matangazo</a></li>
+                        <li><a href="index.html#downloads" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.downloads">Downloads</a></li>
+                        <li><a href="location.html" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.locations">Maeneo</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-gold transition-colors duration-300" data-i18n="nav.contact">Mawasiliano</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Mawasiliano</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><i class="fas fa-location-dot mr-2 text-gold"></i>Kariakoo, Dar es Salaam</li>
+                        <li><i class="fas fa-phone mr-2 text-gold"></i><a href="tel:+255712000001" class="hover:text-gold transition-colors">+255 712 000 001</a></li>
+                        <li><i class="fas fa-envelope mr-2 text-gold"></i><a href="mailto:info@ibadurrahman.ac.tz" class="hover:text-gold transition-colors">info@ibadurrahman.ac.tz</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300 text-sm text-center md:text-left">
+                        &copy; <span id="currentYear"></span> Madrasatul Ibadu-rrahman. Haki Zote Zimehifadhiwa.
+                    </p>
+                    <p class="text-gray-400 text-xs mt-4 md:mt-0 text-center md:text-right">
+                        Tovuti imejengwa kwa ajili ya Madrasatul Ibadu-rrahman. Maelezo yote ni ya mfano (placeholder) na yanaweza kubadilishwa kwa urahisi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Apply Now Button -->
+    <a href="index.html#sajili" id="floatingApply" class="apply-glow float fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 md:gap-3 pl-1.5 pr-4 py-1.5 rounded-full bg-gradient-to-r from-accent to-gold text-white shadow-2xl hover:brightness-110 transition duration-300">
+        <span class="w-9 h-9 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow">
+            <i class="fas fa-graduation-cap text-accent text-base md:text-xl"></i>
+        </span>
+        <span class="flex flex-col leading-none text-left">
+            <span class="text-[9px] md:text-[10px] font-semibold tracking-wider" data-i18n="cta.admissionOpen">ADMISSION IS OPEN</span>
+            <span class="text-xs md:text-sm font-extrabold tracking-wide mt-0.5" data-i18n="cta.applyNow">APPLY NOW</span>
+        </span>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-24 right-6 w-12 h-12 bg-gradient-to-br from-primary to-darkGreen text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hidden z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); menuIcon.classList.toggle('fa-bars'); menuIcon.classList.toggle('fa-xmark'); });
+        }
+        document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden'); menuIcon.classList.add('fa-bars'); menuIcon.classList.remove('fa-xmark');
+        }));
+
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeInElements.forEach(el => observer.observe(el));
+
+        // Contact form
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                contactForm.reset();
+                alert('Ujumbe wako umetumwa kwa mafanikio! Asante kwa kuwasiliana na Madrasatul Ibadu-rrahman.');
+            });
+        }
+
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) backToTopBtn.classList.remove('hidden');
+            else backToTopBtn.classList.add('hidden');
+        });
+        backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const yearEl = document.getElementById('currentYear');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        const translations = {};
+        const langFiles = {sw: 'locales/sw.json', en: 'locales/en.json', ar: 'locales/ar.json'};
+        async function loadLang(lang){
+          if(!translations[lang]){
+            try { const res = await fetch(langFiles[lang], {cache:'no-cache'}); translations[lang] = await res.json(); }
+            catch(e){ translations[lang] = {}; }
+          }
+          document.querySelectorAll('[data-i18n]').forEach(el=>{
+            const key = el.getAttribute('data-i18n');
+            if(translations[lang][key]) el.textContent = translations[lang][key];
+          });
+          document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+            const key = el.getAttribute('data-i18n-ph');
+            if(translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
+          });
+          document.documentElement.lang = lang;
+          document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+          localStorage.setItem('madrasatul_lang', lang);
+        }
+        document.querySelectorAll('.lang-btn').forEach(btn=>{
+          btn.addEventListener('click', ()=>{ loadLang(btn.getAttribute('data-lang')); const d=document.getElementById('langDropdown'); if(d) d.classList.add('hidden'); });
+        });
+        const ddBtn = document.getElementById('langDropdownBtn');
+        if(ddBtn){
+          ddBtn.addEventListener('click', (e)=>{ e.stopPropagation(); document.getElementById('langDropdown').classList.toggle('hidden'); });
+          document.addEventListener('click', ()=>document.getElementById('langDropdown').classList.add('hidden'));
+        }
+        loadLang(localStorage.getItem('madrasatul_lang') || 'en');
+    </script>
+</body>
+
+</html>

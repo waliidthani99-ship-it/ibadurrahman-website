@@ -1,0 +1,14 @@
+﻿DATABASE CONNECTION: SUCCESS
+DATABASE NAME: madrasatul_ibadu_rahman
+MYSQL HOST: 127.0.0.1
+MYSQL PORT: 3306
+CHARSET: utf8mb4
+TABLES:
+ - admins
+ - students
+DB CONFIG: config/db_config.php
+SCHEMA: database/schema.sql
+VERIFICATION IN PHPMYADMIN:
+1. Open http://localhost/phpmyadmin
+2. Left panel shows 'madrasatul_ibadu_rahman'
+3. Click it to see 'admins' and 'students'
