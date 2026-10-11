@@ -12,13 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     if (empty($errors)) {
         $pdo = getDbConnection();
-        $stmt = $pdo->prepare("SELECT id, username, password_hash FROM admins WHERE username = ?");
+        $stmt = $pdo->prepare("SELECT id, username, full_name, password_hash FROM admins WHERE username = ?");
         $stmt->execute(array($user));
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($admin && password_verify($pass, $admin["password_hash"])) {
             session_regenerate_id(true);
             $_SESSION["admin_logged_in"] = true;
             $_SESSION["admin_id"] = $admin["id"];
+            $_SESSION["admin_username"] = $admin["username"];
+            $_SESSION["admin_full_name"] = $admin["full_name"];
             header("Location: dashboard.php");
             exit;
         } else {

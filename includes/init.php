@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/../config/db_config.php';
+require_once __DIR__ . '/registration.php';
 function csrf_token() {
     if (empty($_SESSION["csrf_token"])) {
         $_SESSION["csrf_token"] = bin2hex(random_bytes(32));

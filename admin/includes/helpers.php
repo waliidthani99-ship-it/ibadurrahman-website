@@ -9,6 +9,7 @@ if (!function_exists('status_badge')) {
             "Pending"  => ["bg-amber-100",  "text-amber-700",  "fa-hourglass-half"],
             "Approved" => ["bg-emerald-100","text-emerald-700","fa-circle-check"],
             "Rejected" => ["bg-rose-100",   "text-rose-700",   "fa-circle-xmark"],
+            "Active"   => ["bg-sky-100",    "text-sky-700",    "fa-user-check"],
         ];
         $c = isset($map[$status]) ? $map[$status] : ["bg-gray-100", "text-gray-600", "fa-circle"];
         return '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold '
@@ -18,7 +19,7 @@ if (!function_exists('status_badge')) {
 
 if (!function_exists('status_dot')) {
     function status_dot($status) {
-        $map = ["Pending" => "bg-amber-500", "Approved" => "bg-emerald-500", "Rejected" => "bg-rose-500"];
+        $map = ["Pending" => "bg-amber-500", "Approved" => "bg-emerald-500", "Rejected" => "bg-rose-500", "Active" => "bg-sky-500"];
         $c = isset($map[$status]) ? $map[$status] : "bg-gray-400";
         return '<span class="inline-block w-2 h-2 rounded-full ' . $c . '"></span>';
     }
@@ -67,3 +68,36 @@ if (!function_exists('admin_empty_state')) {
             . '</div>';
     }
 }
+
+if (!function_exists('flash_message')) {
+    function flash_message() {
+        if (empty($_SESSION["flash"]) || !is_array($_SESSION["flash"])) return;
+        $f = $_SESSION["flash"];
+        unset($_SESSION["flash"]);
+        $map = [
+            "success" => ["bg-emerald-50", "text-emerald-700", "ring-emerald-200", "fa-circle-check"],
+            "error"   => ["bg-rose-50",    "text-rose-700",    "ring-rose-200",    "fa-circle-exclamation"],
+            "info"    => ["bg-sky-50",     "text-sky-700",     "ring-sky-200",     "fa-circle-info"],
+        ];
+        $type = isset($f["type"]) ? $f["type"] : "success";
+        $c = isset($map[$type]) ? $map[$type] : $map["success"];
+        echo '<div class="mb-5 flex items-start gap-3 rounded-xl px-4 py-3 text-sm font-medium ring-1 ' . $c[0] . " " . $c[1] . " " . $c[2] . '">'
+            . '<i class="fas ' . $c[3] . ' mt-0.5"></i><span>' . sanitize($f["message"]) . '</span></div>';
+    }
+}
+
+if (!function_exists('set_flash')) {
+    function set_flash($type, $message) {
+        $_SESSION["flash"] = ["type" => $type, "message" => $message];
+    }
+}
+
+if (!function_exists('type_badge')) {
+    function type_badge($type) {
+        if ($type === "legacy") {
+            return '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-violet-100 text-violet-700"><i class="fas fa-clock-rotate-left"></i>Legacy</span>';
+        }
+        return '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-700"><i class="fas fa-star"></i>New</span>';
+    }
+}
+

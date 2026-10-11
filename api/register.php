@@ -27,7 +27,8 @@ if (!empty($errors)) {
   exit;
 }
 $regId = "REG-" . date("YmdHis") . "-" . rand(1000,9999);
-$stmt = $pdo->prepare("INSERT INTO students (registration_id,full_name,date_of_birth,gender,parent_name,parent_phone,parent_email,address,school,madrasa,school_leaving_time,status,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,NOW(),NOW())");
-$stmt->execute([$regId, $studentName, $dob, $gender, $parentName, $phone, $email, $address, $school, $madrasa, $schoolLeaving, "Pending"]);
+$dobVal = ($dob !== "") ? $dob : null;
+$stmt = $pdo->prepare("INSERT INTO students (registration_id, student_type, full_name, date_of_birth, current_class, gender, parent_name, parent_phone, parent_email, address, school, madrasa, school_leaving_time, status, registered_at, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),NOW(),NOW())");
+$stmt->execute([$regId, "new", $studentName, $dobVal, $classReq, $gender, $parentName, $phone, $email, $address, $school, $madrasa, $schoolLeaving, "Pending"]);
 echo json_encode(["success"=>true,"registration_id"=>$regId]);
 
