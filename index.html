@@ -45,6 +45,8 @@
     <style>
         .uppercase-text { text-transform: uppercase; }
 
+        .stat-number { font-variant-numeric: tabular-nums; }
+
         @keyframes applyGlow {
             0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.55), 0 8px 20px rgba(217, 119, 6, 0.35); }
             50% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0), 0 8px 26px rgba(217, 119, 6, 0.55); }
@@ -274,6 +276,47 @@
                     <p class="text-gray-600 leading-relaxed" data-i18n="about.objectives.desc">
                         Kuimarisha na kuendeleza elimu ya dini ya Uislamu kwa elimu kamili yenye matokeo chanya katika usomi, tabia na huduma.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stat Cards Section (Takwimu) -->
+    <section id="takwimu" class="relative bg-gradient-to-br from-primary via-green-700 to-darkGreen py-14 md:py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-islamic-pattern opacity-10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-12 text-center">
+                <!-- Students (Wanafunzi) -->
+                <div class="fade-in">
+                    <div class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white/15 rounded-full mx-auto mb-4">
+                        <i class="fas fa-user-graduate text-white text-2xl md:text-3xl"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+                        <span class="stat-number" data-count="500">500</span><span>+</span>
+                    </div>
+                    <p class="text-green-100 text-sm md:text-base font-medium" data-i18n="stats.students">Wanafunzi</p>
+                </div>
+
+                <!-- Staff Members (Wafanyakazi) -->
+                <div class="fade-in">
+                    <div class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white/15 rounded-full mx-auto mb-4">
+                        <i class="fas fa-users text-white text-2xl md:text-3xl"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+                        <span class="stat-number" data-count="20">20</span><span>+</span>
+                    </div>
+                    <p class="text-green-100 text-sm md:text-base font-medium" data-i18n="stats.staff">Wafanyakazi</p>
+                </div>
+
+                <!-- Years Experience (Miaka ya Uzoefu) -->
+                <div class="fade-in">
+                    <div class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white/15 rounded-full mx-auto mb-4">
+                        <i class="fas fa-award text-white text-2xl md:text-3xl"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+                        <span class="stat-number" data-count="10">10</span><span>+</span>
+                    </div>
+                    <p class="text-green-100 text-sm md:text-base font-medium" data-i18n="stats.years">Miaka ya Uzoefu</p>
                 </div>
             </div>
         </div>
@@ -925,6 +968,47 @@
             });
         }, observerOptions);
         fadeInElements.forEach(el => observer.observe(el));
+
+        // Stat cards count-up animation (runs once when the section enters the viewport)
+        const statsSection = document.getElementById('takwimu');
+        if (statsSection) {
+            const statNumbers = statsSection.querySelectorAll('.stat-number');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const animateCount = (el) => {
+                const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+                const duration = 1800;
+                const startTime = performance.now();
+                el.textContent = '0';
+                const step = (now) => {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = Math.round(eased * target);
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        el.textContent = target;
+                    }
+                };
+                requestAnimationFrame(step);
+            };
+
+            if (prefersReducedMotion) {
+                statNumbers.forEach(el => { el.textContent = el.getAttribute('data-count'); });
+            } else {
+                let hasAnimated = false;
+                const statsObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !hasAnimated) {
+                            hasAnimated = true;
+                            statNumbers.forEach(animateCount);
+                            obs.disconnect();
+                        }
+                    });
+                }, { threshold: 0.3 });
+                statsObserver.observe(statsSection);
+            }
+        }
 
         // Curriculum filter tabs
         const filterBtns = document.querySelectorAll('.filter-btn');
