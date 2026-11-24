@@ -1,0 +1,8 @@
+# Block direct access to local secrets and git metadata on Apache.
+<FilesMatch "^\.env$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^\.git">
+    Require all denied
+</FilesMatch>
