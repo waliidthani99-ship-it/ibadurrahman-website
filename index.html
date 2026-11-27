@@ -639,6 +639,16 @@
                         </div>
                     </div>
 
+                    <!-- Home Address -->
+                    <div>
+                        <label for="address" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.address">Anwani ya Makazi</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                        </label>
+                        <input type="text" id="address" name="address" class="uppercase-text w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" required
+                            placeholder="[Ingiza Mtaa/Shehia/Eneo Anakokaa Mwanafunzi Hapa]" data-i18n-ph="form.address.ph">
+                        <p class="mt-1 text-sm text-red-500 hidden" id="error-address">Anwani inahitajika</p>
+                    </div>
+
                     <!-- Additional Information -->
                     <div>
                         <label for="additionalInfo" class="block text-sm font-semibold text-charcoal mb-2">
@@ -1111,7 +1121,7 @@
         registrationForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             let isValid = true;
-            const requiredFields = ['studentName', 'dob', 'schoolName', 'schoolClass', 'parentName', 'phone', 'declaration'];
+            const requiredFields = ['studentName', 'dob', 'schoolName', 'schoolClass', 'parentName', 'phone', 'address', 'declaration'];
             requiredFields.forEach(field => {
                 const el = document.getElementById(field);
                 if (!el) return;
@@ -1122,6 +1132,8 @@
             if (emailEl.value.trim() && !validateEmail(emailEl.value)) { showError('email'); isValid = false; } else if (emailEl.value.trim()) { hideError('email'); }
             if (isValid) {
                 const formData = new FormData(registrationForm);
+                // Make sure the home address is explicitly part of the submitted data.
+                formData.set('address', document.getElementById('address').value.trim());
                 try {
                     const resp = await fetch('api/register.php', { method: 'POST', body: formData });
                     const data = await resp.json();
@@ -1234,7 +1246,7 @@
     </script>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  const upper = ['studentName','schoolName','parentName'];
+  const upper = ['studentName','schoolName','parentName','address'];
   const toUpper = function(){ this.value = this.value.toUpperCase(); };
   upper.forEach(function(id){
     const el = document.getElementById(id);

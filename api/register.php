@@ -12,6 +12,7 @@ $healthIssues   = v("healthIssues");
 $parentName     = strtoupper(v("parentName"));
 $phone          = v("phone");
 $email          = strtolower(v("email"));
+$address        = strtoupper(v("address"));
 $additionalInfo = v("additionalInfo");
 $declaration    = strtolower(v("declaration"));
 
@@ -21,6 +22,7 @@ if (empty($schoolName)) $errors[] = "schoolName";
 if (empty($schoolClass)) $errors[] = "schoolClass";
 if (empty($parentName)) $errors[] = "parentName";
 if (empty($phone)) $errors[] = "phone";
+if (empty($address)) $errors[] = "address";
 if ($declaration !== "1" && $declaration !== "on" && $declaration !== "true") $errors[] = "declaration";
 if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "email";
 
@@ -52,7 +54,7 @@ $stmt->execute([
     $parentName,
     $phone,
     $email !== "" ? $email : null,
-    "", // address is no longer collected on the public form
+    $address,
     $schoolName,
     "Pending",
     $notes
