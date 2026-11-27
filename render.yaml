@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: madrasatul-ibadurrahman
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /contact.html
+    envVars:
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: WHATSAPP_API_VERSION
+        value: v23.0
+      - key: WHATSAPP_RECIPIENT_1
+        value: "255774634254"
+      - key: WHATSAPP_RECIPIENT_2
+        value: "255719160587"

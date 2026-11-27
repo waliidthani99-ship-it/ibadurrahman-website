@@ -12,10 +12,16 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 
+// Buffer any stray warnings/notices so the response is always valid JSON.
+ob_start();
+
 require_once __DIR__ . '/../config/env.php';
 
 function contact_response(int $status, array $payload): void
 {
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
     http_response_code($status);
     echo json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     exit;
@@ -69,7 +75,7 @@ function contact_send_whatsapp(string $to, string $body, string $token, string $
         rawurlencode($phoneNumberId)
     );
 
-    $payload = [
+    $json = json_encode([
         'messaging_product' => 'whatsapp',
         'to' => $to,
         'type' => 'text',
@@ -77,29 +83,59 @@ function contact_send_whatsapp(string $to, string $body, string $token, string $
             'preview_url' => false,
             'body' => $body,
         ],
-    ];
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-    $ch = curl_init($url);
-    curl_setopt_array($ch, [
-        CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
-        CURLOPT_HTTPHEADER => [
-            'Authorization: Bearer ' . $token,
-            'Content-Type: application/json',
-        ],
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_CONNECTTIMEOUT => 8,
-        CURLOPT_TIMEOUT => 20,
-        CURLOPT_SSL_VERIFYPEER => true,
-        CURLOPT_SSL_VERIFYHOST => 2,
-    ]);
+    $raw = false;
+    $httpCode = 0;
+    $transportError = '';
 
-    $raw = curl_exec($ch);
-    $error = curl_error($ch);
-    $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $json,
+            CURLOPT_HTTPHEADER => [
+                'Authorization: Bearer ' . $token,
+                'Content-Type: application/json',
+            ],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 8,
+            CURLOPT_TIMEOUT => 20,
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_SSL_VERIFYHOST => 2,
+        ]);
 
-    if ($raw === false) {
-        return ['ok' => false, 'error' => contact_trim_error($error !== '' ? $error : 'Hitilafu ya muunganisho.')];
+        $raw = curl_exec($ch);
+        $transportError = (string)curl_error($ch);
+        $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    } elseif (function_exists('file_get_contents')) {
+        // Fallback for PHP builds without the cURL extension.
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => "Authorization: Bearer " . $token . "\r\n"
+                    . "Content-Type: application/json\r\n",
+                'content' => $json,
+                'timeout' => 20,
+                'ignore_errors' => true,
+            ],
+            'ssl' => [
+                'verify_peer' => true,
+                'verify_peer_name' => true,
+            ],
+        ]);
+
+        $raw = @file_get_contents($url, false, $context);
+        $statusLine = $http_response_header[0] ?? '';
+        if (preg_match('/\s(\d{3})\s/', $statusLine, $matches)) {
+            $httpCode = (int)$matches[1];
+        }
+    } else {
+        return ['ok' => false, 'error' => 'Seva haina njia ya kutuma ujumbe (cURL/fopen haipatikani).'];
+    }
+
+    if ($raw === false || $raw === '') {
+        return ['ok' => false, 'error' => contact_trim_error($transportError !== '' ? $transportError : 'Hitilafu ya muunganisho kwa WhatsApp API.')];
     }
 
     $response = json_decode($raw, true);
@@ -117,6 +153,7 @@ function contact_send_whatsapp(string $to, string $body, string $token, string $
     return ['ok' => true, 'id' => $response['messages'][0]['id'] ?? null];
 }
 
+try {
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     contact_response(405, [
         'success' => false,
@@ -236,3 +273,10 @@ contact_response(502, [
     'sent' => 0,
     'failed' => $failed,
 ]);
+} catch (Throwable $e) {
+    error_log('[contact] Unexpected error: ' . $e->getMessage());
+    contact_response(500, [
+        'success' => false,
+        'message' => 'Hitilafu ya ndani ya seva ilitokea. Tafadhali jaribu tena baadaye.',
+    ]);
+}

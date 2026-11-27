@@ -418,6 +418,9 @@
                 e.preventDefault();
                 if (!contactForm.reportValidity()) return;
 
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 30000);
+
                 statusEl.className = 'hidden';
                 statusEl.textContent = '';
                 submitBtn.disabled = true;
@@ -426,9 +429,11 @@
                 submitLabel.textContent = 'Inatuma...';
 
                 try {
-                    const response = await fetch('api/contact.php', {
+                    const response = await fetch('/api/contact.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        cache: 'no-store',
+                        signal: controller.signal,
                         body: JSON.stringify({
                             name: document.getElementById('contactName').value,
                             email: document.getElementById('contactEmail').value,
@@ -439,11 +444,22 @@
                         })
                     });
 
-                    let data;
+                    // Read as text first: servers often return HTML for 404/500 pages.
+                    const raw = await response.text();
+                    let data = null;
                     try {
-                        data = await response.json();
-                    } catch (err) {
-                        throw new Error('Jibu lisilotarajiwa kutoka kwa server. Tafadhali jaribu tena.');
+                        data = raw ? JSON.parse(raw) : null;
+                    } catch (parseError) {
+                        const snippet = raw.replace(/\s+/g, ' ').trim().slice(0, 160);
+                        throw new Error(
+                            'Seva ilirudisha jibu lisilo la JSON (HTTP ' + response.status + '). '
+                            + (snippet ? 'Mwanzo: ' + snippet : 'Jibu lilikuwa tupu.')
+                            + ' Hakikisha /api/contact.php iko live kwenye server.'
+                        );
+                    }
+
+                    if (!data || typeof data.success !== 'boolean') {
+                        throw new Error('Seva ilirudisha jibu lisiloeleweka (HTTP ' + response.status + ').');
                     }
 
                     if (!response.ok || !data.success) {
@@ -456,8 +472,15 @@
                     contactForm.reset();
                     showContactStatus('success', data.message || 'Ujumbe wako umetumwa.');
                 } catch (error) {
-                    showContactStatus('error', error.message || 'Hitilafu ilitokea. Tafadhali jaribu tena.');
+                    let text = error && error.message ? error.message : 'Hitilafu ilitokea. Tafadhali jaribu tena.';
+                    if (error && error.name === 'AbortError') {
+                        text = 'Ujumbe umechukua muda mrefu sana. Tafadhali jaribu tena.';
+                    } else if (error instanceof TypeError) {
+                        text = 'Hitilafu ya mtandao au endpoint haipatikani. Tafadhali jaribu tena baadaye.';
+                    }
+                    showContactStatus('error', text);
                 } finally {
+                    clearTimeout(timeout);
                     submitBtn.disabled = false;
                     spinner.classList.add('hidden');
                     plane.classList.remove('hidden');

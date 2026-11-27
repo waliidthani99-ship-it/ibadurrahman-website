@@ -547,38 +547,64 @@
                         <label for="studentName" class="block text-sm font-semibold text-charcoal mb-2">
                             <span data-i18n="form.studentName">Jina la Mwanafunzi</span> <span class="text-red-500" data-i18n="form.required">*</span>
                         </label>
-                        <input type="text" id="studentName" name="studentName" class="uppercase-text" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                        <input type="text" id="studentName" name="studentName" class="uppercase-text w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" required
                             placeholder="[Ingiza Jina Kamili la Mwanafunzi Hapa]" data-i18n-ph="form.studentName.ph">
                         <p class="mt-1 text-sm text-red-500 hidden" id="error-studentName">Jina la mwanafunzi linahitajika</p>
                     </div>
 
-                    <!-- Age/DOB and Class -->
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="dob" class="block text-sm font-semibold text-charcoal mb-2">
-                                <span data-i18n="form.dob">Tarehe ya Kuzaliwa</span> <span class="text-red-500" data-i18n="form.required">*</span>
-                            </label>
-                            <input type="date" id="dob" name="dob" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
-                            <p class="mt-1 text-sm text-red-500 hidden" id="error-dob">Tarehe ya kuzaliwa inahitajika</p>
-                        </div>
-                        <div>
-                            <label for="requestedClass" class="block text-sm font-semibold text-charcoal mb-2">
-                                <span data-i18n="form.class">Kiwango cha Masomo Anachoomba</span> <span class="text-red-500" data-i18n="form.required">*</span>
-                            </label>
-                            <select id="requestedClass" name="requestedClass" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
-                                <option value="" data-i18n="form.class.ph">[Chagua Kiwango Hapa]</option>
-                                <option value="nursery" data-i18n="form.nursery">Darasa la Awali (Nursery)</option>
-                                <option value="std1-2" data-i18n="form.std12">Darasa la Kwanza - Pili</option>
-                                <option value="std3-5" data-i18n="form.std35">Darasa la Tatu - Tano</option>
-                                <option value="std6-8" data-i18n="form.std68">Darasa la Sita - Nane</option>
-                                <option value="youth" data-i18n="form.youth">Vijana (Juu ya Miaka 13)</option>
-                                <option value="other" data-i18n="form.other">Kiwango Kingine</option>
-                            </select>
-                            <p class="mt-1 text-sm text-red-500 hidden" id="error-requestedClass">Tafadhali chagua kiwango cha masomo</p>
-                        </div>
+                    <!-- Date of Birth -->
+                    <div>
+                        <label for="dob" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.dob">Tarehe ya Kuzaliwa</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                        </label>
+                        <input type="date" id="dob" name="dob" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                        <p class="mt-1 text-sm text-red-500 hidden" id="error-dob">Tarehe ya kuzaliwa inahitajika</p>
+                    </div>
+
+                    <!-- Current School Name -->
+                    <div>
+                        <label for="schoolName" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.schoolName">Jina la Shule Anayosoma</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                        </label>
+                        <input type="text" id="schoolName" name="schoolName" class="uppercase-text w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" required
+                            placeholder="[Ingiza Jina la Shule Anayosoma Hapa]" data-i18n-ph="form.schoolName.ph">
+                        <p class="mt-1 text-sm text-red-500 hidden" id="error-schoolName">Jina la shule linahitajika</p>
+                    </div>
+
+                    <!-- Current School Class -->
+                    <div>
+                        <label for="schoolClass" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.schoolClass">Yupo Darasa la Ngapi Shule</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                        </label>
+                        <select id="schoolClass" name="schoolClass" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                            <option value="" data-i18n="form.class.ph">[Chagua Darasa Hapa]</option>
+                            <option value="nursery" data-i18n="form.classNursery">Darasa la Awali (Nursery)</option>
+                            <option value="std1" data-i18n="form.classStd1">Darasa la Kwanza</option>
+                            <option value="std2" data-i18n="form.classStd2">Darasa la Pili</option>
+                            <option value="std3" data-i18n="form.classStd3">Darasa la Tatu</option>
+                            <option value="std4" data-i18n="form.classStd4">Darasa la Nne</option>
+                            <option value="std5" data-i18n="form.classStd5">Darasa la Tano</option>
+                            <option value="std6" data-i18n="form.classStd6">Darasa la Sita</option>
+                            <option value="std7" data-i18n="form.classStd7">Darasa la Saba</option>
+                            <option value="form1" data-i18n="form.classForm1">Form One</option>
+                            <option value="form2" data-i18n="form.classForm2">Form Two</option>
+                            <option value="form3" data-i18n="form.classForm3">Form Three</option>
+                            <option value="form4" data-i18n="form.classForm4">Form Four</option>
+                            <option value="other" data-i18n="form.classOther">Darasa Nyingine</option>
+                        </select>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="error-schoolClass">Tafadhali chagua darasa la sasa</p>
+                    </div>
+
+                    <!-- Health Issues / Allergies -->
+                    <div>
+                        <label for="healthIssues" class="block text-sm font-semibold text-charcoal mb-2">
+                            <span data-i18n="form.health">Matatizo ya Mwanafunzi au Maradhi (Sio Lazima)</span>
+                        </label>
+                        <textarea id="healthIssues" name="healthIssues" rows="3"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
+                            placeholder="[Ingiza Matatizo au Maradhi Kama Yapo Hapa]" data-i18n-ph="form.health.ph"></textarea>
                     </div>
 
                     <!-- Parent/Guardian Name -->
@@ -586,8 +612,7 @@
                         <label for="parentName" class="block text-sm font-semibold text-charcoal mb-2">
                             <span data-i18n="form.parent">Jina la Mzazi/Mlezi</span> <span class="text-red-500" data-i18n="form.required">*</span>
                         </label>
-                        <input type="text" id="parentName" name="parentName" class="uppercase-text" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                        <input type="text" id="parentName" name="parentName" class="uppercase-text w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" required
                             placeholder="[Ingiza Jina Kamili la Mzazi/Mlezi Hapa]" data-i18n-ph="form.parent.ph">
                         <p class="mt-1 text-sm text-red-500 hidden" id="error-parentName">Jina la mzazi/mlezi linahitajika</p>
                     </div>
@@ -596,36 +621,25 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label for="phone" class="block text-sm font-semibold text-charcoal mb-2">
-                            <span data-i18n="form.phone">Namba ya Simu</span> <span class="text-red-500" data-i18n="form.required">*</span>
-                        </label>
-                        <input type="tel" id="phone" name="phone" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                            placeholder="[Ingiza Namba ya Simu Hapa]" data-i18n-ph="form.phone.ph">
+                                <span data-i18n="form.phone">Namba ya Simu</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                placeholder="[Ingiza Namba ya Simu Hapa]" data-i18n-ph="form.phone.ph">
                             <p class="mt-1 text-sm text-red-500 hidden" id="error-phone">Namba ya simu inahitajika</p>
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-semibold text-charcoal mb-2">
-                            <span data-i18n="form.email">Anwani ya Barua Pepe (Sio Lazima)</span>
-                        </label>
-                        <input type="email" id="email" name="email"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                            placeholder="[Ingiza Barua Pepe Hapa]" data-i18n-ph="form.email.ph">
+                                <span data-i18n="form.email">Anwani ya Barua Pepe (Sio Lazima)</span>
+                            </label>
+                            <input type="email" id="email" name="email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                placeholder="[Ingiza Barua Pepe Hapa]" data-i18n-ph="form.email.ph">
                             <p class="mt-1 text-sm text-red-500 hidden" id="error-email">Tafadhali ingiza barua pepe sahihi</p>
                         </div>
                     </div>
 
-                    <!-- Address -->
-                    <div>
-                        <label for="address" class="block text-sm font-semibold text-charcoal mb-2">
-                            <span data-i18n="form.address">Anwani Kamili</span> <span class="text-red-500" data-i18n="form.required">*</span>
-                        </label>
-                        <textarea id="address" name="address" rows="3" class="uppercase-text" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
-                            placeholder="[Ingiza Anwani Kamili Hapa - Mtaa, Kata, Wilaya, n.k.]" data-i18n-ph="form.address.ph"></textarea>
-                        <p class="mt-1 text-sm text-red-500 hidden" id="error-address">Anwani inahitajika</p>
-                    </div>
-
-                    <!-- Additional Info -->
+                    <!-- Additional Information -->
                     <div>
                         <label for="additionalInfo" class="block text-sm font-semibold text-charcoal mb-2">
                             <span data-i18n="form.extra">Maelezo Mengine (Sio Lazima)</span>
@@ -633,6 +647,18 @@
                         <textarea id="additionalInfo" name="additionalInfo" rows="3"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
                             placeholder="[Ingiza Maelezo Mengine Kama Yapo Hapa]" data-i18n-ph="form.extra.ph"></textarea>
+                    </div>
+
+                    <!-- Declaration -->
+                    <div>
+                        <label for="declaration" class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" id="declaration" name="declaration" value="1" required
+                                class="mt-1 w-5 h-5 text-primary rounded border-gray-300 focus:ring-primary focus:ring-2">
+                            <span class="text-sm text-gray-700 leading-relaxed">
+                                <span data-i18n="form.declaration">Nathibitisha kwamba taarifa zote zilizotolewa hapo juu ni za kweli na sahihi.</span> <span class="text-red-500" data-i18n="form.required">*</span>
+                            </span>
+                        </label>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="error-declaration">Tafadhali thibitisha taarifa kabla ya kutuma</p>
                     </div>
 
                     <!-- Submit Button -->
@@ -1085,10 +1111,12 @@
         registrationForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             let isValid = true;
-            const requiredFields = ['studentName', 'dob', 'requestedClass', 'parentName', 'phone', 'address'];
+            const requiredFields = ['studentName', 'dob', 'schoolName', 'schoolClass', 'parentName', 'phone', 'declaration'];
             requiredFields.forEach(field => {
                 const el = document.getElementById(field);
-                if (!el.value.trim()) { showError(field); isValid = false; } else { hideError(field); }
+                if (!el) return;
+                const empty = el.type === 'checkbox' ? !el.checked : !el.value.trim();
+                if (empty) { showError(field); isValid = false; } else { hideError(field); }
             });
             const emailEl = document.getElementById('email');
             if (emailEl.value.trim() && !validateEmail(emailEl.value)) { showError('email'); isValid = false; } else if (emailEl.value.trim()) { hideError('email'); }
@@ -1206,7 +1234,7 @@
     </script>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  const upper = ['studentName','parentName','address'];
+  const upper = ['studentName','schoolName','parentName'];
   const toUpper = function(){ this.value = this.value.toUpperCase(); };
   upper.forEach(function(id){
     const el = document.getElementById(id);
